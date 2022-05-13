@@ -20,9 +20,10 @@ export default abstract class canvasAbstract{
         this.app.insertAdjacentElement('afterbegin',this.el)
     }
 
-    protected drawModels(num:number,model:any){
+    protected drawModels(num:number,model:ModelConstructor){
         this.positionCollection(num).forEach(position => {
-            new model(this.canvas,position.x,position.y)
+            const instance =  new model(this.canvas,position.x,position.y)
+            instance.render();
             // this.canvas.drawImage(image.get('straw')!,position.x,position.y,config.model.width,config.model.height)
         })
         // Array(num).fill('').forEach(() => {  循环位置赋值 但是无法避免 位置重复
