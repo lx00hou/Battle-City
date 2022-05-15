@@ -4,8 +4,12 @@ import config from "../config";
 
 class straw extends canvasAbstract implements IModel {
 // 草地
+    constructor(){
+        super()
+        super.createModels(config.straw.num,model)
+    }
     render():void {
-        super.drawModels(config.straw.num,model)
+        super.renderModels()
     }
 }
 export default new straw()
