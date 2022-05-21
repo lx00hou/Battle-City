@@ -4,4 +4,12 @@ interface ModelConstructor{
 }
 interface IModel{
     render():void
+    x:number
+    y:number
+    image():HTMLImageElement
+}
+
+interface Icanvas{
+    num():number
+    model():ModelConstructor
 }

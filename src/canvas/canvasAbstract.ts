@@ -4,6 +4,8 @@ import position from "../service/position";
 export default abstract class canvasAbstract{
     //父级 抽象类
     protected models:IModel[] = []
+    abstract num():number
+    abstract model():ModelConstructor
     abstract render():void
     constructor(
         protected app = document.querySelector('#app') as HTMLDivElement,
@@ -12,7 +14,6 @@ export default abstract class canvasAbstract{
     ){
         this.createdCanvas();
     }
-
     //  创建画布
     protected createdCanvas(){
 
@@ -22,8 +23,9 @@ export default abstract class canvasAbstract{
     }
 
     //  生成模型实例
-    protected createModels(num:number,model:ModelConstructor){
-        position.getCollection(num).forEach(position => {
+    protected createModels(){
+        position.getCollection(this.num()).forEach(position => {
+            let model = this.model();
             const instance =  new model(this.canvas,position.x,position.y)
             this.models.push(instance)
         })
@@ -32,7 +34,7 @@ export default abstract class canvasAbstract{
         //     this.canvas.drawImage(image.get('straw')!,position.x,position.y,config.model.width,config.model.height)
         // })
     }
-    //  将模型渲染到画布上
+    //  将模型(除了坦克模型)渲染到画布上
     protected renderModels(){
         this.models.forEach(model => model.render())
     }

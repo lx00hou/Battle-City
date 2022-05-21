@@ -2,14 +2,18 @@ import canvasAbstract from "./canvasAbstract";
 import model from '../model/straw'
 import config from "../config";
 
-class straw extends canvasAbstract implements IModel {
+class straw extends canvasAbstract implements Icanvas {
 // 草地
-    constructor(){
-        super()
-        super.createModels(config.straw.num,model)
+    num():number {
+        return config.straw.num
+    }
+    model(): ModelConstructor {
+        return model
     }
     render():void {
+        super.createModels()
         super.renderModels()
     }
+    
 }
 export default new straw()

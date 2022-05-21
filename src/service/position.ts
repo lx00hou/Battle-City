@@ -20,7 +20,7 @@ class position{
         }
         return collection
     }
-    protected position(){
+    public position(){
         // 返回 随机位置
         return {
             x:Math.floor(Math.random() * (config.canvas.width / config.model.width)) * config.model.width,

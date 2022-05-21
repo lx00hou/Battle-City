@@ -1,15 +1,18 @@
 import canvasAbstract from "./canvasAbstract";
-import model from '../model/water'
+import model from '../model/wall'
 import config from "../config";
 
-class water extends canvasAbstract implements IModel {
-// 草地
-    constructor(){
-        super()
-        super.createModels(config.water.num,model)
+class wall extends canvasAbstract implements Icanvas {
+    
+    num():number {
+        return config.wall.num
+    }
+    model(): ModelConstructor {
+        return model
     }
     render():void {
+        super.createModels()
         super.renderModels()
     }
 }
-export default new water()
+export default new wall()
