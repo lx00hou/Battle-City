@@ -8,10 +8,19 @@ import wall from "../canvas/wall";
 import steel from "../canvas/steel";
 export default class extends modelAbstract implements IModel{
     name:string = 'tank'
-    render(): void {
+    render(): void
+    {
         this.move()
+        /*
+        * 增加坦克向下 移动概率
+        * */
+        // Math.floor(Math.random() * 5) == 1
+        if(_.random(20) == 1){
+            this.direction = directionEnum.bottom
+        }
     }
    protected move():void {
+        //坦克的位置 移动
         while (true){
             let x = this.x;
             let y = this.y;
