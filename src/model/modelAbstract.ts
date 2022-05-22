@@ -5,11 +5,12 @@ export default abstract class modelAbstract {
     abstract name:string
     abstract render():void
     abstract image():HTMLImageElement
+    abstract canvas:ICanvas
     protected direction:directionEnum = directionEnum.top
     public width:number = config.model.width
     public  height:number = config.model.height
 
-    constructor(protected canvas:CanvasRenderingContext2D,public x:number,public y:number) {
+    constructor(public x:number,public y:number) {
         this.rendomDirection()
     } 
     
@@ -19,6 +20,6 @@ export default abstract class modelAbstract {
     }
     protected draw(){
         // img 提取图片 --> 草地 墙 等
-        this.canvas.drawImage(this.image(),this.x,this.y,config.model.width,config.model.height)
+        this.canvas.ctx.drawImage(this.image(),this.x,this.y,config.model.width,config.model.height)
     }
 }

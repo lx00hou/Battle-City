@@ -3,7 +3,7 @@ import config from "../config";
 import model from "../model/tank";
 import position from "../service/position";
 
-class tank extends canvasAbstract implements Icanvas {
+class tank extends canvasAbstract implements ICanvas {
 // 草地
     num():number {
         return config.tank.num
@@ -20,7 +20,7 @@ class tank extends canvasAbstract implements Icanvas {
 
     protected renderModels(){
         // 先擦除画布对象
-        this.canvas.clearRect(0,0,config.canvas.width,config.canvas.height)
+        this.ctx.clearRect(0,0,config.canvas.width,config.canvas.height)
         super.renderModels()
     }
 
@@ -28,7 +28,7 @@ class tank extends canvasAbstract implements Icanvas {
         for(let i = 0 ; i < this.num() ; i++){
             const pos = position.position();
             let model = this.model();
-            const instance =  new model(this.canvas,pos.x,0)
+            const instance =  new model(pos.x,0)
             this.models.push(instance)
         }
     }

@@ -2,7 +2,7 @@ import canvasAbstract from "./canvasAbstract";
 import model from '../model/straw'
 import config from "../config";
 
-class straw extends canvasAbstract implements Icanvas {
+class straw extends canvasAbstract implements ICanvas {
 // 草地
     num():number {
         return config.straw.num

@@ -6,7 +6,10 @@ import { directionEnum } from "../enum/directionEnum";
 import water from "../canvas/water";
 import wall from "../canvas/wall";
 import steel from "../canvas/steel";
+import tank from "../canvas/tank";
 export default class extends modelAbstract implements IModel{
+    canvas: ICanvas = tank 
+
     name:string = 'tank'
     render(): void
     {
