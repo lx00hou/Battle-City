@@ -6,11 +6,14 @@ export default abstract class modelAbstract {
     abstract render():void
     abstract image():HTMLImageElement
     protected direction:directionEnum = directionEnum.top
+    public width:number = config.model.width
+    public  height:number = config.model.height
+
     constructor(protected canvas:CanvasRenderingContext2D,public x:number,public y:number) {
-        this.rendomDieection()
+        this.rendomDirection()
     } 
     
-    protected rendomDieection(){
+    protected rendomDirection(){
         // 坦克生成随机方向
         this.direction = Object.keys(directionEnum)[Math.floor(Math.random() * 4)] as directionEnum 
     }

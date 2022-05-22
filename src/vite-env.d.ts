@@ -6,6 +6,8 @@ interface IModel{
     render():void
     x:number
     y:number
+    width:number
+    height:number
     image():HTMLImageElement
 }
 

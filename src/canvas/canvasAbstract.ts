@@ -3,7 +3,7 @@ import position from "../service/position";
 
 export default abstract class canvasAbstract{
     //父级 抽象类
-    protected models:IModel[] = []
+    public models:IModel[] = []
     abstract num():number
     abstract model():ModelConstructor
     abstract render():void

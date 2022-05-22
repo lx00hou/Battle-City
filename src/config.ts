@@ -8,7 +8,7 @@ import tankBottom from './static/images/tank/bottom.gif';
 import tankLeft from './static/images/tank/left.gif';
 // 配置文件
 export default {
-    timeout:15,
+    timeout:25,
     canvas:{
         width:900,
         height:600,
