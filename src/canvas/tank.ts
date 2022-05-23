@@ -3,8 +3,7 @@ import config from "../config";
 import model from "../model/tank";
 import position from "../service/position";
 
-class tank extends canvasAbstract implements ICanvas {
-// 草地
+export default new ( class extends canvasAbstract implements ICanvas {
     num():number {
         return config.tank.num
     }
@@ -33,5 +32,4 @@ class tank extends canvasAbstract implements ICanvas {
         }
     }
     
-}
-export default new tank()
+})('tank')

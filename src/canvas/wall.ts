@@ -2,8 +2,7 @@ import canvasAbstract from "./canvasAbstract";
 import model from '../model/wall'
 import config from "../config";
 
-class wall extends canvasAbstract implements ICanvas {
-    
+export default new  (class extends canvasAbstract implements ICanvas {
     num():number {
         return config.wall.num
     }
@@ -14,5 +13,4 @@ class wall extends canvasAbstract implements ICanvas {
         super.createModels()
         super.renderModels()
     }
-}
-export default new wall()
+})('wall')

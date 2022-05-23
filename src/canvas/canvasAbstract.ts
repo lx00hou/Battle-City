@@ -8,6 +8,7 @@ export default abstract class canvasAbstract{
     abstract model():ModelConstructor
     abstract render():void
     constructor(
+        protected name:string,
         protected app = document.querySelector('#app') as HTMLDivElement,
         protected el = document.createElement('canvas'),
         public ctx = el.getContext('2d')!
@@ -19,6 +20,7 @@ export default abstract class canvasAbstract{
 
         this.el.width = config.canvas.width;
         this.el.height = config.canvas.height;
+        this.el.setAttribute('name',this.name)
         this.app.insertAdjacentElement('afterbegin',this.el)
     }
 

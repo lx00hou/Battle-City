@@ -1,10 +1,9 @@
 import canvasAbstract from "./canvasAbstract";
-import model from '../model/straw'
-import config from "../config";
+import bullet from '../model/bullet'
 
-export default new ( class  extends canvasAbstract implements ICanvas {
+export default new (class extends canvasAbstract implements ICanvas {
     num():number {
-        return config.straw.num
+        return 0
     }
     model(): ModelConstructor {
         return model
@@ -13,5 +12,4 @@ export default new ( class  extends canvasAbstract implements ICanvas {
         super.createModels()
         super.renderModels()
     }
-    
-})('straw')
+})('bullet')
