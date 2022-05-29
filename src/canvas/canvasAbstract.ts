@@ -5,7 +5,7 @@ export default abstract class canvasAbstract{
     //父级 抽象类
     public models:IModel[] = []
     abstract num():number
-    abstract model():ModelConstructor
+    abstract model():ModelConstructor | BulletModelConstructor
     abstract render():void
     constructor(
         protected name:string,
@@ -19,7 +19,7 @@ export default abstract class canvasAbstract{
     protected createdCanvas(){
 
         this.el.width = config.canvas.width;
-        this.el.height = config.canvas.height;
+        this.el.height = config.canvas.height; 
         this.el.setAttribute('name',this.name)
         this.app.insertAdjacentElement('afterbegin',this.el)
     }

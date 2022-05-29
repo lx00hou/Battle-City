@@ -42,7 +42,7 @@ export default class extends modelAbstract implements IModel{
                     break
             }
             if(this.isTouch(x,y)){
-                this.rendomDirection()
+                this.randomDirection()
             }else {
                 this.x = x;
                 this.y = y;
