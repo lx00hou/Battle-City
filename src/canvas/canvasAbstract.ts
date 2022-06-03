@@ -27,7 +27,7 @@ export default abstract class canvasAbstract{
     //  生成模型实例
     protected createModels(){
         position.getCollection(this.num()).forEach(position => {
-            let model = this.model();
+            let model = this.model() as ModelConstructor;
             const instance =  new model(position.x,position.y)
             this.models.push(instance)
         })
@@ -38,6 +38,7 @@ export default abstract class canvasAbstract{
     }
     //  将模型(除了坦克模型)渲染到画布上
     protected renderModels(){
+        this.ctx.clearRect(0,0,config.canvas.width,config.canvas.height)
         this.models.forEach(model => model.render())
     }
 }

@@ -10,9 +10,10 @@ export default new (class extends canvasAbstract implements ICanvas {
         return model
     }
     render():void {
-        // super.createModels()
-        // super.renderModels()
-        setTimeout(this.createBullet.bind(this),100)
+        setInterval(() => {
+            this.createBullet();
+            this.renderModels()
+        },100)
     }
     createBullet(){
         tank.models.forEach(tank => {
