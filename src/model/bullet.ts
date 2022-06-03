@@ -32,10 +32,21 @@ export default class extends modelAbstract implements IModel{
                 x -= 2
                 break
         }
-        // 碰撞检测
-        if(util.isCanvasTouch(x,y,2,2)){
+        /**
+         *  destory:Function --> 销毁子弹
+         *  touchModel.destory：Function --> 模型消失
+         *  blast：Funtion --> 爆炸效果
+         */
+        // 
+        const touchModel = util.isModelTouch(x,y,2,2)
+        if(util.isCanvasTouch(x,y,2,2)){ 
             // 子弹监测到 碰撞画布 执行移除
             this.destory()
+        }else if(touchModel){
+            // 碰撞到 其他模型(砖墙等)
+            this.destory()    
+            if(touchModel.name !== 'steel') touchModel.destory()   
+             this.blast(touchModel) 
         }else {
             this.x = x;
             this.y = y;

@@ -7,6 +7,7 @@ interface BulletModelConstructor{
     new (tank:IModel):IModel
 }
 interface IModel{
+    name:string
     render():void
     tank?:IModel
     x:number
@@ -15,6 +16,7 @@ interface IModel{
     height:number
     image():HTMLImageElement
     direction:string
+    destory():void
 }
 
 interface ICanvas{
@@ -22,4 +24,5 @@ interface ICanvas{
     model():ModelConstructor | BulletModelConstructor
     ctx:CanvasRenderingContext2D
     removeModel(model:IModel):void 
+    removeModels():void 
 }

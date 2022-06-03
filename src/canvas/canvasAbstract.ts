@@ -37,7 +37,7 @@ export default abstract class canvasAbstract{
         // })
     }
     //  将模型(除了坦克模型)渲染到画布上
-    protected renderModels(){
+    public renderModels(){
         this.ctx.clearRect(0,0,config.canvas.width,config.canvas.height)
         this.models.forEach(model => model.render())
     }

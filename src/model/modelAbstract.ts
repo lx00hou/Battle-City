@@ -1,5 +1,6 @@
 import config from "../config";
 import { directionEnum } from "../enum/directionEnum";    // 坦克 方向 枚举类型
+import { promises } from "../service/image";
 
 export default abstract class modelAbstract {
     abstract name:string
@@ -22,8 +23,24 @@ export default abstract class modelAbstract {
         // img 提取图片 --> 草地 墙 等
         this.canvas.ctx.drawImage(this.image(),this.x,this.y,config.model.width,config.model.height)
     }
-    protected destory(){
+    public destory(){
         // 去画布中 移除 元素
-        this.canvas.removeModel(this)
+        this.canvas.removeModel(this);
+        this.canvas.renderModels();
+    }
+
+    protected blast(model:IModel){
+        Array(...Array(8).keys()).reduce((promise,index) => {
+            return new Promise(resolve => {
+                setTimeout(() => {
+                    const img = new Image
+                    img.src = `/src/static/images/blasts/blast${index}.gif`
+                    img.onload = () => {
+                        this.canvas.ctx.drawImage(img,model.x,model.y,model.width,model.height)
+                        resolve(promise)
+                    }
+                },100)
+            })
+        },Promise.resolve())
     }
 }
