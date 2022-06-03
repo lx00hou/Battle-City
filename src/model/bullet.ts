@@ -3,6 +3,7 @@ import { image } from "../service/image";
 import bullet from "../canvas/bullet";
 import config from "../config";
 import {directionEnum} from "../enum/directionEnum";
+import util from "../util";
 export default class extends modelAbstract implements IModel{
     canvas: ICanvas = bullet 
     name: string = 'bullet'
@@ -32,10 +33,15 @@ export default class extends modelAbstract implements IModel{
                 break
         }
         // 碰撞检测
-        this.x = x;
-        this.y = y;
+        if(util.isCanvasTouch(x,y,2,2)){
+            // 子弹监测到 碰撞画布 执行移除
+            this.destory()
+        }else {
+            this.x = x;
+            this.y = y;
+            this.draw()
+        }
 
-        this.draw()
     }
 
     protected draw(){

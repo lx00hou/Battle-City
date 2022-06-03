@@ -22,4 +22,8 @@ export default abstract class modelAbstract {
         // img 提取图片 --> 草地 墙 等
         this.canvas.ctx.drawImage(this.image(),this.x,this.y,config.model.width,config.model.height)
     }
+    protected destory(){
+        // 去画布中 移除 元素
+        this.canvas.removeModel(this)
+    }
 }

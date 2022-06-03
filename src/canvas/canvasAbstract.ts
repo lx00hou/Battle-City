@@ -41,4 +41,9 @@ export default abstract class canvasAbstract{
         this.ctx.clearRect(0,0,config.canvas.width,config.canvas.height)
         this.models.forEach(model => model.render())
     }
+    //  对 子弹 以及 砖墙 的销毁
+    public removeModel(model:IModel){
+        this.models = this.models.filter(m => m !== model)
+    }
+
 }

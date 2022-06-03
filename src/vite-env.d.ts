@@ -21,4 +21,5 @@ interface ICanvas{
     num():number
     model():ModelConstructor | BulletModelConstructor
     ctx:CanvasRenderingContext2D
+    removeModel(model:IModel):void 
 }
