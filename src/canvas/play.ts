@@ -1,7 +1,6 @@
 import canvasAbstract from "./canvasAbstract";
+import model from '../model/play'
 import config from "../config";
-import model from "../model/boss";
-import position from "../service/position";
 
 export default new ( class extends canvasAbstract implements ICanvas {
     num():number {
@@ -10,17 +9,22 @@ export default new ( class extends canvasAbstract implements ICanvas {
     model(): ModelConstructor {
         return model
     }
-    render():void { 
+    render():void {
         this.createModels()
         super.renderModels()
     }
+
     protected createModels(){
-        
-        [{x:config.canvas.width /2 , y : config.canvas.height - config.model.height}].forEach(position => {
+        const cw = config.canvas.width;
+        const ch = config.canvas.height;
+        const mw = config.model.width;
+        const mh = config.model.height;
+        [
+            {x:cw / 2 + mw * 4,y:ch-mh}
+        ].forEach(position => {
             let model = this.model() as ModelConstructor;
             const instance =  new model(position.x,position.y)
             this.models.push(instance)
         })
     }
-    
-})('boss')
+})('play')
