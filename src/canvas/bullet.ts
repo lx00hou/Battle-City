@@ -13,7 +13,7 @@ export default new (class extends canvasAbstract implements ICanvas {
         setInterval(() => {
             this.createBullet();
             this.renderModels()
-        },20)
+        },50)
     }
     createBullet(){
         tank.models.forEach(tank => {

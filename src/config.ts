@@ -7,6 +7,7 @@ import tankRight from './static/images/tank/right.gif';
 import tankBottom from './static/images/tank/bottom.gif';
 import tankLeft from './static/images/tank/left.gif';
 import bullet from "./static/images/bullet/bullet.jpg";
+import boss from './static/images/boss/boss.png'
 // 配置文件
 export default {
     timeout:25,
@@ -42,6 +43,7 @@ export default {
         tankRight,
         tankBottom,
         tankLeft,
-        bullet
+        bullet,
+        boss
     }
 }

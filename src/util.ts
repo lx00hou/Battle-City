@@ -1,3 +1,4 @@
+import boss from "./canvas/boss"
 import steel from "./canvas/steel"
 import straw from "./canvas/straw"
 import wall from "./canvas/wall"
@@ -18,7 +19,7 @@ export default {
         x:number,y:number,
         width = config.model.width,
         height = config.model.height,
-        models = [...wall.models,...steel.models]
+        models = [...wall.models,...steel.models,...boss.models]
         ):IModel | undefined {
 
             return models.find(model => {
