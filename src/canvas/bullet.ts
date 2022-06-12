@@ -2,6 +2,7 @@ import canvasAbstract from "./canvasAbstract";
 import model from '../model/bullet';
 import tank from './tank';
 import bullet from "../model/bullet";
+import play from "./play";
 export default new (class extends canvasAbstract implements ICanvas {
     num():number {
         return 0
@@ -22,6 +23,9 @@ export default new (class extends canvasAbstract implements ICanvas {
                 this.models.push(new bullet(tank))
             }
         })
+    }
+    addPlayBullet(){
+        this.models.push(new bullet(play.models[0]))
     }
 
 })('bullet')
