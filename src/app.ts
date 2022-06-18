@@ -16,9 +16,16 @@ app.style.width = config.canvas.width +'px'
 app.style.height = config.canvas.height +'px'
 
 export default {
-    bootstrap(){},
-    async stop(){},
+    iaStart:false, 
+    bootstrap(){
+        if(!this.iaStart){
+            app.addEventListener('click', this.start.bind(this))
+        }
+    },
     async start() {
+        if(this.iaStart) return
+        this.iaStart = true;
+        app.style.backgroundImage = "none"; 
         await Promise.all(promises)  // 加载贴图
         straw.render()
         wall.render()
@@ -28,5 +35,6 @@ export default {
         bullet.render()
         boss.render()
         play.render()
-    }
+    },
+    async stop(){}
 } 
