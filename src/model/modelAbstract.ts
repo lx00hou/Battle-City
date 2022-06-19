@@ -1,5 +1,6 @@
 import config from "../config";
 import { directionEnum } from "../enum/directionEnum";    // 坦克 方向 枚举类型
+import audio from "../service/audio";
 import { promises } from "../service/image";
 
 export default abstract class modelAbstract {
@@ -30,6 +31,7 @@ export default abstract class modelAbstract {
     }
 
     protected blast(model:IModel){
+        audio.blast();
         Array(...Array(8).keys()).reduce((promise,index) => {
             return new Promise(resolve => {
                 setTimeout(() => {

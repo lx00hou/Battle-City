@@ -15,16 +15,15 @@ export default {
         width = config.model.width,
         height = config.model.height,
         models
-        ):IModel | undefined {
-            if(models?.length) {
-                return models.find(model => {
-                    const state = 
-                        x + width <= model.x || x >= model.x + model.width  ||
-                        y + height <= model.y || y >= model.y + model.height
+    ):IModel | undefined {
+        if(models?.length) {
+            return models.find(model => {
+                const state = 
+                    x + width <= model.x || x >= model.x + model.width  ||
+                    y + height <= model.y || y >= model.y + model.height
 
-                    return !state
-                })
-            }
-            
+                return !state
+            })
         }
+    }
 }

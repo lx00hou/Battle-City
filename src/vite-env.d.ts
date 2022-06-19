@@ -25,4 +25,5 @@ interface ICanvas{
     ctx:CanvasRenderingContext2D
     removeModel(model:IModel):void 
     removeModels():void 
+    stop?():vold
 }
