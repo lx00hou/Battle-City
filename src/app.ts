@@ -16,11 +16,19 @@ app.style.width = config.canvas.width +'px'
 app.style.height = config.canvas.height +'px'
 
 export default {
-    iaStart:false, 
+    iaStart:false,
+    state:0,    // state 非0 代表游戏结束
+    inteval:0,
     bootstrap(){
-        if(!this.iaStart){
-            app.addEventListener('click', this.start.bind(this))
-        }
+        app.addEventListener('click', async () => {
+            await this.start();
+            this.inteval = setInterval(() => {
+                if(!tank.models.length) this.state = 1;
+                if(!play.models.length || !boss.models.length) this.state  = 2;
+                if(this.state) this.end()
+            })
+        })
+        
     },
     async start() {
         if(this.iaStart) return
@@ -36,5 +44,8 @@ export default {
         boss.render()
         play.render()
     },
-    async stop(){}
+    async end(){
+        clearInterval(this.inteval);
+        console.log('游戏结束');
+    }
 } 
